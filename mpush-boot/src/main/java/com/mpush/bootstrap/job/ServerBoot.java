@@ -56,6 +56,7 @@ public final class ServerBoot extends BootJob {
             @Override
             public void onFailure(Throwable cause) {
                 Logs.Console.error("start {} failure, jvm exit with code -1", server.getClass().getSimpleName(), cause);
+                /**系统直接强制退出，卧槽暴力*/
                 System.exit(-1);
             }
         });

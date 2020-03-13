@@ -41,6 +41,7 @@ import static com.mpush.common.ErrorCode.SESSION_EXPIRED;
  *
  * @author ohun@live.cn
  */
+/**快速重连处理*/
 public final class FastConnectHandler extends BaseMessageHandler<FastConnectMessage> {
     private final ReusableSessionManager reusableSessionManager;
 

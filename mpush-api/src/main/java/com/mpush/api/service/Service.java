@@ -24,6 +24,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Created by yxx on 2016/5/17.
  *
+ * 定义了所有服务的一组状态和行为
  * @author ohun@live.cn
  */
 public interface Service {

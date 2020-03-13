@@ -26,6 +26,7 @@ import java.util.function.Supplier;
  *
  * @author ohun@live.cn
  */
+/**用来标识接口为函数接口*/
 @FunctionalInterface
 public interface Factory<T> extends Supplier<T> {
 }

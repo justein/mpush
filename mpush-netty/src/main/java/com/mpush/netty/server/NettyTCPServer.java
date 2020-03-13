@@ -50,6 +50,12 @@ import static com.mpush.tools.Utils.useNettyEpoll;
  *
  * @author ohun@live.cn
  */
+/**
+ * 消息推送服务端的初始化类，在这里进行netty服务器的一系列初始化操作
+ * 首先会根据配置，选择创建NIOServer还是epollServer，然后进行事件循环组的设置等操作
+ * 添加服务器启动监听事件
+ *
+ * */
 public abstract class NettyTCPServer extends BaseService implements Server {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -248,7 +254,7 @@ public abstract class NettyTCPServer extends BaseService implements Server {
     }
 
     protected ChannelHandler getEncoder() {
-        return PacketEncoder.INSTANCE;//每连上一个链接调用一次, 所有用单利
+        return PacketEncoder.INSTANCE;//每连上一个链接调用一次, 所有用单例
     }
 
     /**

@@ -43,6 +43,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author ohun@live.cn (夜色)
  */
+/**广播推送任务*/
 public final class BroadcastPushTask implements PushTask {
 
     private final long begin = System.currentTimeMillis();
@@ -147,7 +148,7 @@ public final class BroadcastPushTask implements PushTask {
         if (future.isSuccess()) {//推送成功
             successUserIds.add(userId);
             Logs.PUSH.info("[Broadcast] push message to client success, userId={}, message={}", message.getUserId(), message);
-        } else {//推送失败
+        } else {//推送失败，这里要根据失败原因制定相关策略
             Logs.PUSH.warn("[Broadcast] push message to client failure, userId={}, message={}, conn={}", message.getUserId(), message, future.channel());
         }
         if (finishTasks.decrementAndGet() == 0) {
